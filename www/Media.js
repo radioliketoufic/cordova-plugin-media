@@ -130,6 +130,9 @@ Media.prototype.getCurrentPosition = function(success, fail) {
 Media.prototype.startRecord = function() {
     exec(null, this.errorCallback, "Media", "startRecordingAudio", [this.id, this.src]);
 };
+Media.prototype.startRecordWithCompression = function(options) {
+    exec(null, this.errorCallback, "Media", "startRecordingAudioWithCompression", [this.id, this.src, options]);
+};
 
 /**
  * Stop recording audio file.
