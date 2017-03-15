@@ -331,7 +331,7 @@
                     bPlayAudioWhenScreenIsLocked = [playAudioWhenScreenIsLocked boolValue];
                 }
 
-                NSString* sessionCategory = bPlayAudioWhenScreenIsLocked ? AVAudioSessionCategoryPlayback : AVAudioSessionCategorySoloAmbient;
+                NSString* sessionCategory = bPlayAudioWhenScreenIsLocked ? AVAudioSessionCategoryPlayAndRecord : AVAudioSessionCategorySoloAmbient;
                 [self.avSession setCategory:sessionCategory error:&err];
                 if (![self.avSession setActive:YES error:&err]) {
                     // other audio with higher priority that does not allow mixing could cause this to fail
@@ -643,9 +643,9 @@
             }
             // get the audioSession and set the category to allow recording when device is locked or ring/silent switch engaged
             if ([weakSelf hasAudioSession]) {
-                /*if (![weakSelf.avSession.category isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {
+                if (![weakSelf.avSession.category isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {
                     [weakSelf.avSession setCategory:AVAudioSessionCategoryRecord error:nil];
-                }*/
+                }
 
                 if (![weakSelf.avSession setActive:YES error:&error]) {
                     // other audio with higher priority that does not allow mixing could cause this to fail
