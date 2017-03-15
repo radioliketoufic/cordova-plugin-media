@@ -697,11 +697,13 @@
                     static const int defaultChannels = 1;
 
                     // Set default SampleRate, NumberOfChannels if values are missing
-                    NSNumber* sampleRate = [[command.arguments objectAtIndex:2] objectForKey:@"SampleRate"];
-                    sampleRate = sampleRate!=nil ? sampleRate:[NSNumber numberWithFloat:defaultSampleRate];
+                    //NSNumber* sampleRate = [[command.arguments objectAtIndex:2] objectForKey:@"SampleRate"];
+                    NSNumber* sampleRate = [NSNumber numberWithFloat:defaultSampleRate];
+                    //sampleRate = sampleRate!=nil ? sampleRate:[NSNumber numberWithFloat:defaultSampleRate];
 
-                    NSNumber* numberOfChannels = [[command.arguments objectAtIndex:2] objectForKey:@"NumberOfChannels"];
-                    numberOfChannels = numberOfChannels != nil ? numberOfChannels:[NSNumber numberWithInt:defaultChannels];
+                    //NSNumber* numberOfChannels = [[command.arguments objectAtIndex:2] objectForKey:@"NumberOfChannels"];
+                    NSNumber* numberOfChannels = [NSNumber numberWithInt:defaultChannels];
+                    //numberOfChannels = numberOfChannels != nil ? numberOfChannels:[NSNumber numberWithInt:defaultChannels];
 
                     NSDictionary* recorderSettingsDict = [NSDictionary dictionaryWithObjectsAndKeys:
                         formatID,AVFormatIDKey,
