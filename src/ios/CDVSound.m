@@ -661,7 +661,7 @@
             NSDictionary *audioSettings = @{AVFormatIDKey: @(kAudioFormatMPEG4AAC),
                                              AVSampleRateKey: @(44100),
                                              AVNumberOfChannelsKey: @(1),
-                                             AVEncoderAudioQualityKey: @(AVAudioQualityMedium)
+                                             AVEncoderAudioQualityKey: @(AVAudioQualityMin)
                                              };
             audioFile.recorder = [[CDVAudioRecorder alloc] initWithURL:audioFile.resourceURL settings:nil error:&error];
 
@@ -724,6 +724,8 @@
         [self.commandDelegate evalJs:jsString];
     }
 }
+
+
 
 - (void)stopRecordingAudio:(CDVInvokedUrlCommand*)command
 {
