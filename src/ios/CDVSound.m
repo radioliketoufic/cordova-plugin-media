@@ -639,7 +639,7 @@
        CMTime time = [avPlayer currentTime];
        position = CMTimeGetSeconds(time);
     }
-    if (position==NaN) position=-1;
+    if (isnan(position)) position=-1;
 
     CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDouble:position];
 
