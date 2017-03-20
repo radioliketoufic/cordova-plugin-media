@@ -349,7 +349,7 @@
 
                 NSString* sessionCategory = bPlayAudioWhenScreenIsLocked ? AVAudioSessionCategoryPlayAndRecord : AVAudioSessionCategorySoloAmbient;
                 //[self.avSession setCategory:sessionCategory withOptions:AVAudioSessionCategoryOptionMixWithOthers|AVAudioSessionCategoryOptionDefaultToSpeaker error:&err];
-                [self.avSession setCategory:sessionCategory withOptions:AVAudioSessionCategoryOptionMixWithOthers|AVAudioSessionCategoryOptionAllow​Bluetooth|AVAudioSessionCategoryOptionDefaultToSpeaker error:&err];
+                [self.avSession setCategory:sessionCategory withOptions:AVAudioSessionCategoryOptionMixWithOthers|AVAudio​Session​Category​Option​Allow​Bluetooth|AVAudioSessionCategoryOptionDefaultToSpeaker error:&err];
                 if (![self.avSession setActive:YES error:&err]) {
                     // other audio with higher priority that does not allow mixing could cause this to fail
                     NSLog(@"Unable to play audio: %@", [err localizedFailureReason]);
@@ -677,7 +677,7 @@
                     if ([weakSelf hasAudioSession]) {
                         if (![weakSelf.avSession.category isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {
                             //[weakSelf.avSession setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionMixWithOthers|AVAudioSessionCategoryOptionDefaultToSpeaker error:nil];
-                            [weakSelf.avSession setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionMixWithOthers|AVAudioSessionCategoryOptionAllow​Bluetooth|AVAudioSessionCategoryOptionDefaultToSpeaker error:nil];
+                            [weakSelf.avSession setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionMixWithOthers|AVAudio​Session​Category​Option​Allow​Bluetooth|AVAudioSessionCategoryOptionDefaultToSpeaker error:nil];
     						// force output to speaker, resolves issues with HTML5 audio playback within the app
     						// [weakSelf.avSession overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
                         }
